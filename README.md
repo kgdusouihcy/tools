@@ -1,2 +1,2 @@
 # tools
-tool methds of javascript/typescript
+tool methods of javascript/typescript
