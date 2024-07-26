@@ -9,7 +9,7 @@ class Uhf {
   start(inductionItem) {
     this.inductionItem = inductionItem;
     const that = this;
-    const flag = false;
+    let flag = false;
     this.inductionItem.loadingText = "初始化，打开设备";
 
     if (typeof plus === "undefined") {
