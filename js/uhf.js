@@ -60,7 +60,6 @@ class Uhf {
             }
             if (action === "com.p9uhf.card.epc") {
             }
-
           }
         }
       );
@@ -97,20 +96,21 @@ class Uhf {
       this.inductionItem.loadingText = `已读取成功`;
       this.inductionItem.iconShow = "success";
       // 读取到标签后立即停止再读取
-      this.stop();
+      this.close();
       return
     }
     if (!this.inductionItem.epcList.includes(epc)) {
-      this.inductionItem.epcList.push(key);
+      this.inductionItem.epcList.push(epc);
       // 读取到标签数等于max后立即停止读取
       if (this.inductionItem.max && this.inductionItem.epcList.length >= this.inductionItem.max) {
-        this.stop();
+        this.close();
       }
     }
     this.inductionItem.loadingText = `已读取到${this.inductionItem.epcList.length}个标签`;
   }
   //发送关闭模块的广播
   close() {
+    this.inductionItem.show = false
     this.sendBroadcast("com.p9uhf.stop.read");
     this.sendBroadcast("com.p9uhf.close");
   }
